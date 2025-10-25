@@ -119,7 +119,7 @@ else:
             x="Average Error",
             y="Name",
             orientation="h",
-            title="Mean Absolute Forecast Error by Forecaster and Ensemble",
+            title="Ranking: Mean Absolute Forecast Error by Forecaster and Ensemble",
             text="Average Error",
         )
         bar_fig.update_traces(texttemplate="%{text:.2f}", textposition="outside", cliponaxis=False)
