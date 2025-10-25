@@ -1,95 +1,121 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import datetime
+from datetime import date, timedelta
 
+st.set_page_config(page_title="Ensemble Forecast – DE-LU DA Spread", layout="wide")
+
+# -------- CONFIG --------
+DATA_URL = "https://raw.githubusercontent.com/Spolders/ST-Teamcast-POC/refs/heads/main/Teamcast%20-%20Ensemble.csv"
+
+# -------- DATA LOADER --------
 @st.cache_data
-
-def load_spread_data():
-    url = "https://raw.githubusercontent.com/Spolders/teamcast/refs/heads/main/forecasts"
+def load_data(url: str) -> pd.DataFrame:
     df = pd.read_csv(url)
-    df['Forecast date'] = pd.to_datetime(df['Forecast date'])
-    df['Forecasted value'] = pd.to_numeric(df['Forecasted value'], errors='coerce')
+    # expected columns: Date, Forecasted value, Pseudonym, Actual value, (optional) Absolute Error
+    # normalize types
+    df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
+    if "Forecasted value" in df.columns:
+        df["Forecasted value"] = pd.to_numeric(df["Forecasted value"], errors="coerce")
+    if "Actual value" in df.columns:
+        df["Actual value"] = pd.to_numeric(df["Actual value"], errors="coerce")
+
+    # add normalized forecast_date (calendar day)
+    df["Forecast date"] = df["Date"].dt.date
+
+    # compute absolute error if not provided (or if NaNs present)
+    if "Absolute Error" not in df.columns:
+        df["Absolute Error"] = (df["Forecasted value"] - df["Actual value"]).abs()
+    else:
+        # ensure numeric and fill if missing
+        df["Absolute Error"] = pd.to_numeric(df["Absolute Error"], errors="coerce")
+        missing_mask = df["Absolute Error"].isna() & df["Forecasted value"].notna() & df["Actual value"].notna()
+        df.loc[missing_mask, "Absolute Error"] = (df.loc[missing_mask, "Forecasted value"] - df.loc[missing_mask, "Actual value"]).abs()
+
     return df
 
-# --- LOAD DATA ---
-df = load_spread_data()
+df = load_data(DATA_URL)
 
-# Filter for last 14 days
-end_date = datetime.date.today()
-start_date = end_date - datetime.timedelta(days=14)
+# safety: keep only last 14 days if a longer file is ever uploaded
+end_d = date.today()
+start_d = end_d - timedelta(days=14)
+df_recent = df[(df["Forecast date"] >= start_d) & (df["Forecast date"] <= end_d)].copy()
 
-recent_df = df[(df['Forecast date'].dt.date >= start_date) & (df['Forecast date'].dt.date <= end_date)]
+st.title("Ensemble Forecast German DA Spread")
 
-# Create boxplot
-if recent_df.empty:
+# -------- BOXPLOT (Distribution by Forecast Date) --------
+if df_recent.empty or df_recent["Forecasted value"].dropna().empty:
     st.warning("No forecast data available for the last 14 days.")
 else:
-    st.title("Ensemble Forecast German DA Spread")
-
-    fig = px.box(
-        recent_df,
-        x=recent_df['Forecast date'].dt.date,
+    fig_box = px.box(
+        df_recent.dropna(subset=["Forecasted value"]),
+        x="Forecast date",
         y="Forecasted value",
-        points="all",  # show individual forecasts as dots
+        points="all",
         labels={"Forecast date": "Date", "Forecasted value": "Forecast Hi-Lo Spread (€)"},
-        title="Distribution of Forecasted Day-Ahead Auction DE-LU Hi-Lo Spreads - Last 14 Days"
+        title="Distribution of Forecasted Day-Ahead Auction DE-LU Hi-Lo Spreads (Last 14 Days)"
+    )
+    fig_box.update_layout(xaxis_title="Forecast Date", yaxis_title="Hi-Lo Spread (€)")
+    st.plotly_chart(fig_box, use_container_width=True)
+
+st.caption("Data updates daily. Contact us for forward-looking data, bidding algos, and/or API access.")
+
+# -------- BAR CHART (Average Daily Errors by Stream and Ensemble) --------
+if df_recent.empty or df_recent["Absolute Error"].dropna().empty:
+    st.warning("No error data available to calculate average errors.")
+else:
+    # per-stream mean absolute error
+    per_stream = (
+        df_recent
+        .dropna(subset=["Pseudonym", "Absolute Error"])
+        .groupby("Pseudonym", as_index=False)["Absolute Error"]
+        .mean()
+        .rename(columns={"Pseudonym": "Name", "Absolute Error": "Average Error"})
     )
 
-    fig.update_layout(xaxis_title="Forecast Date", yaxis_title="Hi-Lo Spread (€)")
+    # ensemble statistics per day (mean & median across streams vs actual)
+    # keep only rows where both forecast and actual exist
+    valid = df_recent.dropna(subset=["Forecasted value", "Actual value"]).copy()
+    if not valid.empty:
+        daily = (
+            valid.groupby("Forecast date")
+                 .agg(mean_fc=("Forecasted value", "mean"),
+                      median_fc=("Forecasted value", "median"),
+                      actual=("Actual value", "first"))
+                 .reset_index()
+        )
+        daily["Mean Error"] = (daily["mean_fc"] - daily["actual"]).abs()
+        daily["Median Error"] = (daily["median_fc"] - daily["actual"]).abs()
 
-    st.plotly_chart(fig, use_container_width=True)
+        ensemble_rows = pd.DataFrame({
+            "Name": ["Mean of ensemble", "Median of ensemble"],
+            "Average Error": [daily["Mean Error"].mean(), daily["Median Error"].mean()]
+        })
+    else:
+        ensemble_rows = pd.DataFrame({"Name": [], "Average Error": []})
 
-st.caption("Data updates daily. Contact us for forward-looking data, bidding algos, and/or API access.")
+    summary = pd.concat([per_stream, ensemble_rows], ignore_index=True)
+    summary = summary.sort_values("Average Error", ascending=True)
 
-# --- BAR CHART: Average Daily Errors by Stream and Ensemble ---
+    if summary.empty:
+        st.warning("Insufficient data to compute the error summary.")
+    else:
+        bar_fig = px.bar(
+            summary,
+            x="Average Error",
+            y="Name",
+            orientation="h",
+            title="Average Daily Forecast Error by Stream and Ensemble",
+            text="Average Error",
+        )
+        bar_fig.update_traces(texttemplate="%{text:.2f}", textposition="outside", cliponaxis=False)
+        bar_fig.update_layout(
+            yaxis={"categoryorder": "total ascending"},
+            xaxis_title="Average Absolute Error (€)",
+            bargap=0.3,
+            margin=dict(l=10, r=10, t=60, b=10)
+        )
 
-# Normalize date
-recent_df['Forecast date'] = pd.to_datetime(recent_df['Forecast date']).dt.date
+        st.plotly_chart(bar_fig, use_container_width=True)
 
-# 1. Calculate absolute error for each forecast
-recent_df['Absolute Error'] = abs(recent_df['Forecasted value'] - recent_df['Actual value'])
-
-# 2. Average absolute error per stream
-stream_avg = recent_df.groupby('Stream')['Absolute Error'].mean().reset_index()
-stream_avg.columns = ['Name', 'Average Error']
-
-# 3. Ensemble errors per day
-ensemble = recent_df.groupby('Forecast date').agg({
-    'Forecasted value': ['mean', 'median'],
-    'Actual value': 'first'
-}).reset_index()
-ensemble.columns = ['Forecast date', 'Mean Forecast', 'Median Forecast', 'Actual value']
-ensemble['Mean Error'] = abs(ensemble['Mean Forecast'] - ensemble['Actual value'])
-ensemble['Median Error'] = abs(ensemble['Median Forecast'] - ensemble['Actual value'])
-
-# 4. Combine all into one summary DataFrame
-summary = pd.concat([
-    stream_avg,
-    pd.DataFrame({
-        'Name': ['Mean of 4', 'Median of 4'],
-        'Average Error': [ensemble['Mean Error'].mean(), ensemble['Median Error'].mean()]
-    })
-]).sort_values('Average Error')
-
-# 5. Plot horizontal bar chart
-bar_fig = px.bar(
-    summary,
-    x='Average Error',
-    y='Name',
-    orientation='h',
-    title="Average Daily Forecast Error by Stream and Ensemble",
-    text='Average Error',
-    text_auto='.2f',
-    labels={'Name': 'Stream / Ensemble', 'Average Error': 'Avg Absolute Error (€)'}
-)
-
-bar_fig.update_layout(
-    yaxis={'categoryorder': 'total descending'},
-    xaxis_title="Average Absolute Error (€)",
-    bargap=0.3
-)
-
-st.plotly_chart(bar_fig, use_container_width=True)
-
-st.caption("Data updates daily. Contact us for forward-looking data, bidding algos, and/or API access.")
+st.caption("Data updates daily. Contact us for API access to forward-looking data.")
