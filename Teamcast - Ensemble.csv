@@ -1,22 +1,22 @@
 Date,Forecasted value,Pseudonym,Actual value,Absolute Error
-2025-10-11 10:15:13,#N/A,House Forecast 2 Submission,322.22,
-2025-10-11 10:15:11,#N/A,House Forecast 1 Submission,322.22,
+2025-10-11 10:15:13,#N/A,Dodona,322.22,
+2025-10-11 10:15:11,#N/A,Persistence,322.22,
 2025-10-11 10:55:43,nan,Forecast Hi-Lo Spread DAA DE-LU,322.22,
-2025-10-12 10:15:13,#N/A,House Forecast 2 Submission,72.07,
-2025-10-12 10:15:11,#N/A,House Forecast 1 Submission,72.07,
+2025-10-12 10:15:13,#N/A,Dodona,72.07,
+2025-10-12 10:15:11,#N/A,Persistence,72.07,
 2025-10-12 10:55:41,nan,Forecast Hi-Lo Spread DAA DE-LU,72.07,
-2025-10-13 10:15:12,#N/A,House Forecast 2 Submission,422.2,
-2025-10-13 10:15:10,#N/A,House Forecast 1 Submission,422.2,
+2025-10-13 10:15:12,#N/A,Dodona,422.2,
+2025-10-13 10:15:10,#N/A,Persistence,422.2,
 2025-10-13 10:56:11,nan,Forecast Hi-Lo Spread DAA DE-LU,422.2,
-2025-10-14 10:15:14,#N/A,House Forecast 1 Submission,273.15,
-2025-10-14 10:15:15,#N/A,House Forecast 2 Submission,273.15,
+2025-10-14 10:15:14,#N/A,Dodona,273.15,
+2025-10-14 10:15:15,#N/A,Persistence,273.15,
 2025-10-14 10:55:45,nan,Forecast Hi-Lo Spread DAA DE-LU,273.15,
-2025-10-15 10:15:08,273.15,House Forecast 1 Submission,88.57,184.58
-2025-10-15 10:15:11,#N/A,House Forecast 2 Submission,88.57,
+2025-10-15 10:15:08,273.15,Dodona,88.57,184.58
+2025-10-15 10:15:11,#N/A,Persistence,88.57,
 2025-10-15 10:55:54,nan,Forecast Hi-Lo Spread DAA DE-LU,88.57,
-2025-10-16 10:15:13,180.86,House Forecast 2 Submission,79.63,101.23
-2025-10-16 10:15:14,155.59,House Forecast 3 Submission,79.63,75.96
-2025-10-16 10:15:11,88.57,House Forecast 1 Submission,79.63,8.94
+2025-10-16 10:15:13,180.86,Dodona,79.63,101.23
+2025-10-16 10:15:14,155.59,Persistence,79.63,75.96
+2025-10-16 10:15:11,88.57,Didyma,79.63,8.94
 2025-10-16 10:56:03,nan,Forecast Hi-Lo Spread DAA DE-LU,79.63,
 2025-10-17 10:15:12,83.43,Dodona,97.7,14.27
 2025-10-17 10:15:11,78.29,Persistence,97.7,19.41
