@@ -41,7 +41,7 @@ end_d = date.today()
 start_d = end_d - timedelta(days=14)
 df_recent = df[(df["Forecast date"] >= start_d) & (df["Forecast date"] <= end_d)].copy()
 
-st.title("Ensemble Forecast German DA Spread")
+st.title("Collaborative Forecast German DA Spread")
 
 # -------- BOXPLOT (Distribution by Forecast Date) --------
 if df_recent.empty or df_recent["Forecasted value"].dropna().empty:
@@ -65,7 +65,7 @@ else:
             "date_label": "Date of Forecast (=D-1)",
             "Forecasted value": "Forecast Hi-Lo Spread (€)",
         },
-        title="Distribution of Forecasted Day-Ahead Auction DE-LU Hi-Lo Spreads (Last 14 Days)",
+        title="Ensemble Forecast of Day-Ahead Auction DE-LU Hi-Lo Spreads (Last 14 Days)",
         range_y=[min(0.0, ymin), ymax + 50],
     )
     
@@ -74,7 +74,7 @@ else:
 
 st.caption("Data updates daily. Contact us for forward-looking data and API access.")
 
-# -------- BAR CHART (Average Daily Errors by Stream and Ensemble) --------
+# -------- BAR CHART (Forecaster Ranking by Mean Absolute Error) --------
 if df_recent.empty or df_recent["Absolute Error"].dropna().empty:
     st.warning("No error data available to calculate average errors.")
 else:
@@ -117,15 +117,15 @@ else:
         bar_fig = px.bar(
             summary,
             x="Average Error",
-            y="Name",
+            y="Forecaster / ensemble",
             orientation="h",
-            title="Average Daily Forecast Error by Stream and Ensemble",
-            text="Average Error",
+            title="Mean Absolute Forecast Error by Forecaster and Ensemble",
+            text="Mean Absolute Error",
         )
         bar_fig.update_traces(texttemplate="%{text:.2f}", textposition="outside", cliponaxis=False)
         bar_fig.update_layout(
             yaxis={"categoryorder": "total ascending"},
-            xaxis_title="Average Absolute Error (€)",
+            xaxis_title="Mean Absolute Error (€)",
             bargap=0.3,
             margin=dict(l=10, r=10, t=60, b=10)
         )
