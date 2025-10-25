@@ -52,7 +52,7 @@ else:
         x="Forecast date",
         y="Forecasted value",
         points="all",
-        labels={"Forecast date": "Date", "Forecasted value": "Forecast Hi-Lo Spread (€)"},
+        labels={"Date of Forecast (D-1)": "Date", "Forecasted value": "Forecast Hi-Lo Spread (€)"},
         title="Distribution of Forecasted Day-Ahead Auction DE-LU Hi-Lo Spreads (Last 14 Days)"
     )
     fig_box.update_layout(xaxis_title="Forecast Date", yaxis_title="Hi-Lo Spread (€)")
