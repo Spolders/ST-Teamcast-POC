@@ -52,6 +52,10 @@ else:
     df_recent["date_label"] = pd.to_datetime(df_recent["Forecast date"]).dt.strftime("%Y-%m-%d")
     order = sorted(df_recent["date_label"].unique())
 
+    # compute bounds
+    ymin = float(df_recent["Forecasted value"].min())
+    ymax = float(df_recent["Forecasted value"].max())
+
     fig_box = px.box(
         df_recent.dropna(subset=["Forecasted value"]),
         x="date_label",
@@ -62,10 +66,7 @@ else:
             "Forecasted value": "Forecast Hi-Lo Spread (€)",
         },
         title="Distribution of Forecasted Day-Ahead Auction DE-LU Hi-Lo Spreads (Last 14 Days)",
-        range_y=[
-            min(0, float(df_recent["Forecasted value"].min())),
-            max(0, float(df_recent["Forecasted value"].max())),
-        ],
+        range_y=[min(0.0, ymin), ymax + 50],
     )
     
     fig_box.update_layout(xaxis_title="Date of Forecast (=D-1)", yaxis_title="DAA Hi-Lo Spread (€)")
