@@ -58,7 +58,7 @@ else:
     fig_box.update_layout(xaxis_title="Forecast Date", yaxis_title="Hi-Lo Spread (€)")
     st.plotly_chart(fig_box, use_container_width=True)
 
-st.caption("Data updates daily. Contact us for forward-looking data, bidding algos, and/or API access.")
+st.caption("Data updates daily. Contact us for forward-looking data and API access.")
 
 # -------- BAR CHART (Average Daily Errors by Stream and Ensemble) --------
 if df_recent.empty or df_recent["Absolute Error"].dropna().empty:
@@ -118,4 +118,4 @@ else:
 
         st.plotly_chart(bar_fig, use_container_width=True)
 
-st.caption("Data updates daily. Contact us for API access to forward-looking data.")
+st.caption("Data updates daily. Contact us for forward-looking data and API access.")
