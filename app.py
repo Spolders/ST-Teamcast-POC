@@ -6,7 +6,7 @@ from datetime import date, timedelta
 st.set_page_config(page_title="Ensemble Forecast – DE-LU DA Spread", layout="wide")
 
 # -------- CONFIG --------
-DATA_URL = "https://raw.githubusercontent.com/Spolders/ST-Teamcast-POC/refs/heads/main/Teamcast-Ensemble.csv"
+DATA_URL = "https://raw.githubusercontent.com/Spolders/ST-Teamcast-POC/refs/heads/main/Teamcast-Ensemble1.csv"
 
 # -------- DATA LOADER --------
 @st.cache_data
