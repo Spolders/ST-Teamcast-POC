@@ -72,7 +72,7 @@ else:
     fig_box.update_xaxes(
         categoryorder="array",
         categoryarray=order,
-        dtick=1,
+        dtick=14,
         tickangle=-45
     )
     
