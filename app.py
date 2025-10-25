@@ -55,7 +55,7 @@ else:
         labels={"Date of Forecast (D-1)": "Date", "Forecasted value": "Forecast Hi-Lo Spread (€)"},
         title="Distribution of Forecasted Day-Ahead Auction DE-LU Hi-Lo Spreads (Last 14 Days)"
     )
-    fig_box.update_layout(xaxis_title="Date of Forecast (D-1)", yaxis_title="Hi-Lo Spread (€)")
+    fig_box.update_layout(xaxis_title="Date of Forecast (=D-1)", yaxis_title="DAA Hi-Lo Spread (€)")
     st.plotly_chart(fig_box, use_container_width=True)
 
 st.caption("Data updates daily. Contact us for forward-looking data and API access.")
