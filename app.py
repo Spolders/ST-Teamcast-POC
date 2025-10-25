@@ -117,7 +117,7 @@ else:
         bar_fig = px.bar(
             summary,
             x="Average Error",
-            y="Forecaster / ensemble",
+            y="Name",
             orientation="h",
             title="Mean Absolute Forecast Error by Forecaster and Ensemble",
             text="Mean Absolute Error",
