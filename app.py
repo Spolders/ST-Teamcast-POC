@@ -125,6 +125,7 @@ else:
         bar_fig.update_traces(texttemplate="%{text:.2f}", textposition="outside", cliponaxis=False)
         bar_fig.update_layout(
             yaxis={"categoryorder": "total descending"},
+            yaxis_title="Forecaster Name / Nickname",
             xaxis_title="Mean Absolute Error (€)",
             bargap=0.3,
             margin=dict(l=10, r=10, t=60, b=10)
