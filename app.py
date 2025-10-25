@@ -68,14 +68,6 @@ else:
         ],
     )
     
-    # Show every day in order and angle the ticks
-    fig_box.update_xaxes(
-        categoryorder="array",
-        categoryarray=order,
-        dtick=14,
-        tickangle=-45
-    )
-    
     fig_box.update_layout(xaxis_title="Date of Forecast (=D-1)", yaxis_title="DAA Hi-Lo Spread (€)")
     st.plotly_chart(fig_box, use_container_width=True)
 
