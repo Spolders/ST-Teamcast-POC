@@ -130,6 +130,9 @@ else:
             bargap=0.3,
             margin=dict(l=10, r=10, t=60, b=10)
         )
+        bar_fig.update_traces(
+        hovertemplate="%{y}<br>Avg Error: %{x:.2f}€<extra></extra>"
+        )
 
         st.plotly_chart(bar_fig, use_container_width=True)
 
