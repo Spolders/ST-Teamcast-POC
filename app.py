@@ -53,7 +53,11 @@ else:
         y="Forecasted value",
         points="all",
         labels={"Date of Forecast (D-1)": "Date", "Forecasted value": "Forecast Hi-Lo Spread (€)"},
-        title="Distribution of Forecasted Day-Ahead Auction DE-LU Hi-Lo Spreads (Last 14 Days)"
+        title="Distribution of Forecasted Day-Ahead Auction DE-LU Hi-Lo Spreads (Last 14 Days)",
+        range_y=[
+        min(0, float(df_recent["Forecasted value"].min())),
+        max(0, float(df_recent["Forecasted value"].max())),
+        ],
     )
     fig_box.update_layout(xaxis_title="Date of Forecast (=D-1)", yaxis_title="DAA Hi-Lo Spread (€)")
     st.plotly_chart(fig_box, use_container_width=True)
