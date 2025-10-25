@@ -47,7 +47,7 @@ st.title("Ensemble Forecast German DA Spread")
 if df_recent.empty or df_recent["Forecasted value"].dropna().empty:
     st.warning("No forecast data available for the last 14 days.")
 else:
-    Make a label column for categorical x and fix the sort order
+    # Make a label column for categorical x and fix the sort order
     df_recent = df_recent.copy()
     df_recent["date_label"] = pd.to_datetime(df_recent["Forecast date"]).dt.strftime("%Y-%m-%d")
     order = sorted(df_recent["date_label"].unique())
@@ -67,7 +67,7 @@ else:
     fig_box.update_layout(xaxis_title="Date of Forecast (=D-1)", yaxis_title="DAA Hi-Lo Spread (€)")
     st.plotly_chart(fig_box, use_container_width=True)
 
-    Show every day in order and angle the ticks
+    # Show every day in order and angle the ticks
     fig_box.update_xaxes(
         categoryorder="array",
         categoryarray=order,
