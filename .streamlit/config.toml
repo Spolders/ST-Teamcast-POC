@@ -1,0 +1,6 @@
+[theme]
+base = "dark"
+primaryColor = "#026395"            # Bahama Blue
+backgroundColor = "#000000"         # pure black
+secondaryBackgroundColor = "#111111"
+textColor = "#FFFFFF"
