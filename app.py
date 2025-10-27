@@ -4,6 +4,7 @@ import plotly.express as px
 from datetime import date, timedelta
 
 px.defaults.template = "plotly_dark"
+px.defaults.color_discrete_sequence = ["#4EA8DE", "#73C2FB", "#9AD6FF"]  # lighter blues
 
 def darkify(fig):
     return fig.update_layout(
