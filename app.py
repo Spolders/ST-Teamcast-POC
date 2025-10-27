@@ -12,6 +12,16 @@ def darkify(fig):
         plot_bgcolor="rgba(0,0,0,0)"
     )
 
+LOGO_URL = "https://raw.githubusercontent.com/Spolders/ST-Teamcast-POC/main/logo.png"
+
+hdr = st.container()
+with hdr:
+    left, right = st.columns([1, 0.18])   # adjust the ratio to taste
+    with left:
+        st.markdown("### Ensemble Forecast – Teamcast")
+    with right:
+        st.image(LOGO_URL, use_container_width=True)  # shows at top-right
+
 st.set_page_config(page_title="Ensemble Forecast – DE-LU DA Spread", layout="wide")
 
 # -------- CONFIG --------
