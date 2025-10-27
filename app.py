@@ -3,6 +3,14 @@ import pandas as pd
 import plotly.express as px
 from datetime import date, timedelta
 
+px.defaults.template = "plotly_dark"
+
+def darkify(fig):
+    return fig.update_layout(
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)"
+    )
+
 st.set_page_config(page_title="Ensemble Forecast – DE-LU DA Spread", layout="wide")
 
 # -------- CONFIG --------
