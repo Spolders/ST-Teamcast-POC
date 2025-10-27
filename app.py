@@ -18,7 +18,7 @@ hdr = st.container()
 with hdr:
     left, right = st.columns([1, 0.18])   # adjust the ratio to taste
     with left:
-        st.markdown("### Ensemble Forecast – Teamcast")
+        st.write("")
     with right:
         st.image(LOGO_URL, use_container_width=True)  # shows at top-right
 
