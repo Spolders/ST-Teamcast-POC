@@ -16,7 +16,7 @@ jobs:
       - name: Fetch latest CSV from Google Sheets (public export)
         run: |
           mkdir -p data data/archive
-          curl -L "https://docs.google.com/spreadsheets/d/1lkDPD5nZnNVLqVe2PHkMH5nlNtpZqXcOAP3sR4lMacU/export?format=csv&gid=0"
+          curl -L "https://docs.google.com/spreadsheets/d/1lkDPD5nZnNVLqVe2PHkMH5nlNtpZqXcOAP3sR4lMacU/export?format=csv&gid=0" -o data/Teamcast-Ensemble.csv
 
           # also write a dated archive copy
           RUN_DATE="$(TZ=Europe/Berlin date +%F)"
