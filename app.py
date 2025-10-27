@@ -20,7 +20,7 @@ with hdr:
     with left:
         st.write("")
     with right:
-        st.image(LOGO_URL, use_container_width=250)  # shows at top-right
+        st.image(LOGO_URL, use_container_width=500)  # shows at top-right
 
 st.set_page_config(page_title="Ensemble Forecast – DE-LU DA Spread", layout="wide")
 
