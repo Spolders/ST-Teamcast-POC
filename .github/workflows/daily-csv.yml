@@ -6,6 +6,9 @@ on:
     - cron: "10 4 * * *"
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
 jobs:
   update-csv:
     runs-on: ubuntu-latest
