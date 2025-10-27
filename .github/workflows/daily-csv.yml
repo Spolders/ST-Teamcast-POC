@@ -1,1 +1,36 @@
+name: Daily CSV Update
+
+on:
+  schedule:
+    # 05:10 UTC daily (≈ 07:10 Berlin in winter; 06:10 during summer DST)
+    - cron: "10 4 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  update-csv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch latest CSV from Google Sheets (public export)
+        run: |
+          mkdir -p data data/archive
+          curl -L "https://docs.google.com/spreadsheets/d/1lkDPD5nZnNVLqVe2PHkMH5nlNtpZqXcOAP3sR4lMacU/export?format=csv&gid=0"
+
+          # also write a dated archive copy
+          RUN_DATE="$(TZ=Europe/Berlin date +%F)"
+          cp data/Teamcast-Ensemble.csv "data/archive/Teamcast-Ensemble-${RUN_DATE}.csv"
+
+      - name: Commit changes if any
+        run: |
+          if git diff --quiet; then
+            echo "No changes."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/Teamcast-Ensemble.csv data/archive/*.csv
+            git commit -m "chore: daily CSV update"
+            git push
+          fi
 
