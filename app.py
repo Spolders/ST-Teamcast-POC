@@ -3,6 +3,14 @@ import pandas as pd
 import plotly.express as px
 from datetime import date, timedelta
 
+FAVICON_URL = "https://raw.githubusercontent.com/Spolders/ST-Teamcast-POC/main/tc_logo_dark_512.png"
+
+st.set_page_config(
+    page_title="Teamcast",
+    page_icon=FAVICON_URL,   # can be URL, bytes, or PIL Image
+    layout="wide",
+)
+
 px.defaults.template = "plotly_dark"
 px.defaults.color_discrete_sequence = ["#4EA8DE", "#73C2FB", "#9AD6FF"]  # lighter blues
 
