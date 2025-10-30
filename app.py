@@ -156,3 +156,25 @@ else:
         st.plotly_chart(bar_fig, use_container_width=True)
 
 st.caption("Data updates daily. Contact us for forward-looking data and API access.")
+
+st.markdown("""
+---
+### Disclaimer
+
+**FlexUp GmbH** is a collaborative forecasting platform aggregating data for power market participants in Germany.  
+We do not offer financial or investment advice, manage customer funds, or facilitate trading or financial transactions.  
+
+Please note that all data provided by **FlexUp GmbH**, including the data on this website — such as prices and spreads displayed in the charts — are **not necessarily real-time or accurate**.  
+They are strictly intended for informational purposes and **should not be relied upon for investing or trading decisions**.  
+
+Redistribution of the information displayed on or provided by **FlexUp GmbH** is strictly prohibited.  
+The data offered are not sourced from any exchanges, but rather from private forecasting companies and public sources. Therefore, prices and spreads may not be accurate and could differ from actual market prices.  
+
+We emphasize that we are **not liable for any trading or investing losses** that you may incur.  
+By using the data, charts, or any related information, you **accept all responsibility for any risks involved**.  
+**FlexUp GmbH** will not accept any liability for losses or damages arising from the use of our data or related services.  
+
+By accessing our website or using our services, all users/visitors are deemed to have accepted these conditions.
+""")
+
+st.markdown("<br><hr>", unsafe_allow_html=True)
