@@ -161,7 +161,7 @@ st.markdown("""
 ---
 ### Disclaimer
 
-**FlexUp GmbH** is a collaborative forecasting platform aggregating data for power market participants in Germany.  
+**FlexUp Teamcast** is a collaborative forecasting platform aggregating data for power market participants in Germany.  
 We do not offer financial or investment advice, manage customer funds, or facilitate trading or financial transactions.  
 
 Please note that all data provided by **FlexUp GmbH**, including the data on this website — such as prices and spreads displayed in the charts — are **not necessarily real-time or accurate**.  
