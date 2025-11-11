@@ -7,7 +7,7 @@ FAVICON_URL = "https://raw.githubusercontent.com/Spolders/ST-Teamcast-POC/main/t
 
 st.set_page_config(
     page_title="Teamcast",
-    page_icon=FAVICON_URL,   # can be URL, bytes, or PIL Image
+    page_icon=FAVICON_URL,   
     layout="wide",
 )
 
@@ -29,8 +29,6 @@ with hdr:
         st.write("")
     with right:
         st.image(LOGO_URL, use_container_width=True)  # shows at top-right
-
-st.set_page_config(page_title="Ensemble Forecast – DE-LU DA Spread", layout="wide")
 
 # -------- CONFIG --------
 DATA_URL = "https://raw.githubusercontent.com/Spolders/ST-Teamcast-POC/refs/heads/main/data/Teamcast-Ensemble.csv"
