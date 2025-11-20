@@ -11,6 +11,17 @@ st.set_page_config(
     layout="wide",
 )
 
+st.markdown("""
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R661Z2RE3Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R661Z2RE3Z');
+</script>
+""", unsafe_allow_html=True)
+
 px.defaults.template = "plotly_dark"
 px.defaults.color_discrete_sequence = ["#4EA8DE", "#73C2FB", "#9AD6FF"]  # lighter blues
 
