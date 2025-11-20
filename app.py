@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import plotly.express as px
 from datetime import date, timedelta
@@ -11,16 +12,17 @@ st.set_page_config(
     layout="wide",
 )
 
-st.markdown("""
+# GA4 client tag via components
+components.html("""
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R661Z2RE3Z"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'G-R661Z2RE3Z');
 </script>
-""", unsafe_allow_html=True)
+""", height=0, width=0)
 
 px.defaults.template = "plotly_dark"
 px.defaults.color_discrete_sequence = ["#4EA8DE", "#73C2FB", "#9AD6FF"]  # lighter blues
