@@ -67,7 +67,11 @@ start_d = end_d - timedelta(days=14)
 df_recent = df[(df["Forecast date"] >= start_d) & (df["Forecast date"] <= end_d)].copy()
 
 st.title("Collaborative Forecast German DA Spread")
-st.link_button("Teamcast FAQ", "https://www.flexup.pro/faq")
+left, right = st.columns([3, 1])
+with left:
+    st.write("Learn more about Teamcast:")
+with right:
+    st.link_button("Teamcast FAQ", "https://www.flexup.pro/faq")
 
 # -------- BOXPLOT (Distribution by Forecast Date) --------
 if df_recent.empty or df_recent["Forecasted value"].dropna().empty:
