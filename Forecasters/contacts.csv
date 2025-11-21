@@ -1,6 +1,6 @@
 Forecast name,Forecaster,Get in touch
 Didyma,@Athena_or_Kassandra?,www.flexup.pro/forecasters/didyma
 Dodona,@Cecinestpasunepipe,www.flexup.pro/forecasters/dodona
-Benchmark,@Benchmark,www.flexup.pro/forecasters/persistence
-Ensemble Mean,@teamcast,www.flexup.pro/forecasters/ensemblemean
-Ensemble Median,@teamcast,www.flexup.pro/forecasters/ensemblemedian
+Persistence,@Benchmark,www.flexup.pro/forecasters/persistence
+Mean of ensemble,@teamcast,www.flexup.pro/forecasters/ensemblemean
+Median of ensemble,@teamcast,www.flexup.pro/forecasters/ensemblemedian
