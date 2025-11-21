@@ -72,7 +72,7 @@ def load_contacts(url: str) -> pd.DataFrame:
     c = pd.read_csv(url)
     c["Forecast name"] = c["Forecast name"].astype(str).str.strip()
     c["Forecaster"] = c["Forecaster"].astype(str).str.strip()
-    c["Get in touch"] = c["Get in touch"].astype(str).str.strip()
+    c["Forecast profile"] = c["Forecast profile"].astype(str).str.strip()
     return c
 
 contacts = load_contacts(CONTACT_URL)
