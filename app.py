@@ -174,7 +174,7 @@ else:
         st.plotly_chart(bar_fig, use_container_width=True)
 
 # -------- CONTACT FORECASTERS --------
-st.subheader("Contact Forecasters")
+st.subheader("Forecast Profiles")
 
 contact_table = summary.copy()
 contact_table = contact_table.rename(columns={
@@ -194,12 +194,12 @@ contact_table = contact_table.sort_values("MAE (€/MWh)", ascending=True).reset
 contact_table.insert(0, "Number", range(1, len(contact_table) + 1))
 
 st.dataframe(
-    contact_table[["Number", "Forecast name", "MAE (€/MWh)", "Forecaster", "Get in touch"]],
+    contact_table[["Number", "Forecast name", "MAE (€/MWh)", "Forecaster", "Forecast profile"]],
     hide_index=True,
     column_config={
-        "Get in touch": st.column_config.LinkColumn(
-            "Get in touch",
-            display_text="contact"
+        "Forecast profile": st.column_config.LinkColumn(
+            "Forecast profile",
+            display_text="See forecast profile"
         ),
         "MAE (€/MWh)": st.column_config.NumberColumn(
             "MAE (€/MWh)",
