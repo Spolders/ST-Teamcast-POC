@@ -45,6 +45,7 @@ with hdr:
 
 # -------- CONFIG --------
 DATA_URL = "https://raw.githubusercontent.com/Spolders/ST-Teamcast-POC/refs/heads/main/data/Teamcast-Ensemble.csv"
+CONTACT_URL = "https://raw.githubusercontent.com/Spolders/ST-Teamcast-POC/refs/heads/Staging/Forecasters/contacts.csv"
 
 # -------- DATA LOADER --------
 @st.cache_data
@@ -78,6 +79,16 @@ df = load_data(DATA_URL)
 end_d = date.today()
 start_d = end_d - timedelta(days=14)
 df_recent = df[(df["Forecast date"] >= start_d) & (df["Forecast date"] <= end_d)].copy()
+
+@st.cache_data
+def load_contacts(url: str) -> pd.DataFrame:
+    c = pd.read_csv(url)
+    c["Forecast name"] = c["Forecast name"].astype(str).str.strip()
+    c["Forecaster"] = c["Forecaster"].astype(str).str.strip()
+    c["Forecast profile"] = c["Forecast profile"].astype(str).str.strip()
+    return c
+
+contacts = load_contacts(CONTACT_URL)
 
 st.title("Collaborative Forecast German DA Spread")
 st.link_button("Learn more about Teamcast", "https://www.flexup.pro/faq")
@@ -174,6 +185,42 @@ else:
         )
 
         st.plotly_chart(bar_fig, use_container_width=True)
+
+# -------- CONTACT FORECASTERS --------
+st.subheader("Forecast Profiles")
+
+contact_table = summary.copy()
+contact_table = contact_table.rename(columns={
+    "Name": "Forecast name",
+    "Average Error": "MAE (€/MWh)"
+})
+
+# merge contact info from github
+contact_table = contact_table.merge(
+    contacts,
+    on="Forecast name",
+    how="left"
+)
+
+# sort low -> high MAE and add rank number
+contact_table = contact_table.sort_values("MAE (€/MWh)", ascending=True).reset_index(drop=True)
+contact_table.insert(0, "Number", range(1, len(contact_table) + 1))
+
+st.dataframe(
+    contact_table[["Number", "Forecast name", "MAE (€/MWh)", "Forecaster", "Forecast profile"]],
+    hide_index=True,
+    column_config={
+        "Forecast profile": st.column_config.LinkColumn(
+            "Forecast profile",
+            display_text="See forecast profile"
+        ),
+        "MAE (€/MWh)": st.column_config.NumberColumn(
+            "MAE (€/MWh)",
+            format="%.2f"
+        )
+    },
+    use_container_width=True
+)
 
 st.caption("Data updates daily. Contact us for forward-looking data and API access.")
 
