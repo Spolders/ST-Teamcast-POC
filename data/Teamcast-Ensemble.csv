@@ -61,10 +61,11 @@ Date,Forecasted value,Pseudonym,Actual value,Absolute Error
 12/3/2025 9:15:11,271.77,Persistence,82.02,189.75
 12/3/2025 9:15:16,161.63,Didyma,82.02,79.61
 12/3/2025 11:15:16,196.43,LLM Spreadbot v1,82.02,114.41
-12/4/2025 0:00:00,202.12,Forecast masher v1,127.46,74.66
+12/4/2025 0:00:00,202.12,Forecast Masher 25,127.46,74.66
 12/4/2025 0:00:00,54.78,oraclegenesis,127.46,72.68
 12/4/2025 0:00:00,141.51,Didyma,127.46,14.05
 12/4/2025 0:00:00,82.02,Persistence,127.46,45.44
 12/4/2025 0:00:00,176.90,Dodona,127.46,49.44
 12/4/2025 0:00:00,nan,Forecast Hi-Lo Spread DAA DE-LU,127.46,
 12/4/2025 0:00:00,211.31,LLM Spreadbot v1,127.46,83.85
+
