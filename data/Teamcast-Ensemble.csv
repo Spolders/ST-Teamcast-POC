@@ -48,19 +48,19 @@ Date,Forecasted value,Pseudonym,Actual value,Absolute Error
 12/5/2025 0:00:00,127.46,Persistence,42.96,84.50
 12/5/2025 0:00:00,nan,Forecast Hi-Lo Spread DAA DE-LU,42.96,
 12/5/2025 0:00:00,185.93,LLM Spreadbot v1,42.96,142.97
-12/06/2025,210.26,LLM Spreadbot v1,91.24,119.02
-12/06/2025,202.12,Forecast Masher 25,91.24,110.88
-12/06/2025,46.51,oraclegenesis,91.24,44.73
-12/06/2025,85.21,Dodona,91.24,6.03
-12/06/2025,42.96,Persistence,91.24,48.28
-12/06/2025,72.68,Didyma,91.24,18.56
-12/06/2025,nan,Forecast Hi-Lo Spread DAA DE-LU,91.24,
-12/07/2025,129.92,Forecast Masher 25,107.45,22.47
-12/07/2025,189.93,LLM Spreadbot v1,107.45,82.48
-12/07/2025,101.09,oraclegenesis,107.45,6.36
-12/07/2025,67.10,Dodona,107.45,40.35
-12/07/2025,80.59,Didyma,107.45,26.86
-12/07/2025,91.24,Persistence,107.45,16.21
+12/6/2025 0:00:00,210.26,LLM Spreadbot v1,91.24,119.02
+12/6/2025 0:00:00,202.12,Forecast Masher 25,91.24,110.88
+12/6/2025 0:00:00,46.51,oraclegenesis,91.24,44.73
+12/6/2025 0:00:00,85.21,Dodona,91.24,6.03
+12/6/2025 0:00:00,42.96,Persistence,91.24,48.28
+12/6/2025 0:00:00,72.68,Didyma,91.24,18.56
+12/6/2025 0:00:00,nan,Forecast Hi-Lo Spread DAA DE-LU,91.24,
+12/7/2025 0:00:00,129.92,Forecast Masher 25,107.45,22.47
+12/7/2025 0:00:00,189.93,LLM Spreadbot v1,107.45,82.48
+12/7/2025 0:00:00,101.09,oraclegenesis,107.45,6.36
+12/7/2025 0:00:00,67.10,Dodona,107.45,40.35
+12/7/2025 0:00:00,80.59,Didyma,107.45,26.86
+12/7/2025 0:00:00,91.24,Persistence,107.45,16.21
 12/7/2025 0:00:00,nan,Forecast Hi-Lo Spread DAA DE-LU,107.45,
 12/8/2025 0:00:00,215.49,Forecast Masher 25,92.67,122.82
 12/8/2025 0:00:00,202.93,LLM Spreadbot v1,92.67,110.26
@@ -83,3 +83,10 @@ Date,Forecasted value,Pseudonym,Actual value,Absolute Error
 12/10/2025 0:00:00,86.51,Didyma,55.57,30.94
 12/10/2025 0:00:00,88.76,Dodona,55.57,33.19
 12/10/2025 0:00:00,nan,Forecast Hi-Lo Spread DAA DE-LU,55.57,
+12/11/2025 0:00:00,233.90,Forecast Masher 25,,233.90
+12/11/2025 0:00:00,197.93,LLM Spreadbot v1,,197.93
+12/11/2025 0:00:00,50.65,oraclegenesis,,50.65
+12/11/2025 0:00:00,70.21,Dodona,,70.21
+12/11/2025 0:00:00,89.29,Didyma,,89.29
+12/11/2025 0:00:00,55.57,Persistence,,55.57
+12/11/2025 0:00:00,nan,Forecast Hi-Lo Spread DAA DE-LU,,
