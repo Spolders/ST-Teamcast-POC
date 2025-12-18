@@ -4,4 +4,5 @@ Dodona,@Cecinestpasunepipe,www.flexup.pro/forecasters/dodona
 Persistence,@Benchmark,www.flexup.pro/forecasters/persistence
 Mean of ensemble,@teamcast,www.flexup.pro/forecasters/ensemblemean
 Median of ensemble,@teamcast,www.flexup.pro/forecasters/ensemblemedian
+Electricity Maps Model DE_price_day_ahead,@Electricity_Maps,https://www.flexup.pro/forecasters/emaps
 
