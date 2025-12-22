@@ -120,7 +120,7 @@ else:
     )
     
     fig_box.update_layout(xaxis_title="Date of Forecast (=D-1)", yaxis_title="DAA Hi-Lo Spread (€)")
-    st.plotly_chart(fig_box, use_container_width=True)
+    st.plotly_chart(fig_box, width="stretch")
 
 st.caption("Data updates daily. Contact us for forward-looking data and API access.")
 
@@ -184,7 +184,7 @@ else:
         hovertemplate="%{y}<br>Avg Error: %{x:.2f}€<extra></extra>"
         )
 
-        st.plotly_chart(bar_fig, use_container_width=True)
+        st.plotly_chart(bar_fig, width="stretch")
 
 # -------- CONTACT FORECASTERS --------
 st.subheader("Forecast Profiles")
@@ -219,7 +219,7 @@ st.dataframe(
             format="%.2f"
         )
     },
-    use_container_width=True
+    width="stretch"
 )
 
 st.caption("Data updates daily. Contact us for forward-looking data and API access.")
