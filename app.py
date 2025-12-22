@@ -41,7 +41,7 @@ with hdr:
     with left:
         st.write("")
     with right:
-        st.image(LOGO_URL, use_container_width=True)  # shows at top-right
+        st.image(LOGO_URL, width="stretch")  # shows at top-right
 
 # -------- CONFIG --------
 DATA_URL = "https://raw.githubusercontent.com/Spolders/ST-Teamcast-POC/refs/heads/main/data/Teamcast-Ensemble.csv"
@@ -120,7 +120,7 @@ else:
     )
     
     fig_box.update_layout(xaxis_title="Date of Forecast (=D-1)", yaxis_title="DAA Hi-Lo Spread (€)")
-    st.plotly_chart(fig_box, use_container_width=True)
+    st.plotly_chart(fig_box, width="stretch")
 
 st.caption("Data updates daily. Contact us for forward-looking data and API access.")
 
@@ -184,7 +184,7 @@ else:
         hovertemplate="%{y}<br>Avg Error: %{x:.2f}€<extra></extra>"
         )
 
-        st.plotly_chart(bar_fig, use_container_width=True)
+        st.plotly_chart(bar_fig, width="stretch")
 
 # -------- CONTACT FORECASTERS --------
 st.subheader("Forecast Profiles")
@@ -219,7 +219,7 @@ st.dataframe(
             format="%.2f"
         )
     },
-    use_container_width=True
+    width="stretch"
 )
 
 st.caption("Data updates daily. Contact us for forward-looking data and API access.")
