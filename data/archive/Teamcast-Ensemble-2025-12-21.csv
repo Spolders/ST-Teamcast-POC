@@ -1,4 +1,11 @@
 Date,Forecasted value,Pseudonym,Actual value,Absolute Error
+12/07/2025,129.92,Forecast Masher 25,107.45,22.47
+12/07/2025,189.93,LLM Spreadbot v1,107.45,82.48
+12/07/2025,101.09,oraclegenesis,107.45,6.36
+12/07/2025,67.10,Dodona,107.45,40.35
+12/07/2025,80.59,Didyma,107.45,26.86
+12/07/2025,91.24,Persistence,107.45,16.21
+12/07/2025,nan,Electricity Maps Model DE_price_day_ahead,107.45,
 12/08/2025,215.49,Forecast Masher 25,92.67,122.82
 12/08/2025,202.93,LLM Spreadbot v1,92.67,110.26
 12/08/2025,83.85,oraclegenesis,92.67,8.82
@@ -76,8 +83,3 @@ Date,Forecasted value,Pseudonym,Actual value,Absolute Error
 12/20/2025,47.80,Persistence,47.7,0.10
 12/20/2025,76.74,Dodona,47.7,29.04
 12/20/2025,53.76,Electricity Maps Model DE_price_day_ahead,47.7,6.06
-12/21/2025,70.66,oraclegenesis,43.44,27.22
-12/21/2025,49.20,Didyma,43.44,5.76
-12/21/2025,47.75,Dodona,43.44,4.31
-12/21/2025,47.70,Persistence,43.44,4.26
-12/21/2025,50.87,Electricity Maps Model DE_price_day_ahead,43.44,7.43

@@ -1,4 +1,25 @@
 Date,Forecasted value,Pseudonym,Actual value,Absolute Error
+12/05/2025,206.77,Forecast Masher 25,42.96,163.81
+12/05/2025,34.12,oraclegenesis,42.96,8.84
+12/05/2025,104.74,Dodona,42.96,61.78
+12/05/2025,84.45,Didyma,42.96,41.49
+12/05/2025,127.46,Persistence,42.96,84.50
+12/05/2025,nan,Electricity Maps Model DE_price_day_ahead,42.96,
+12/05/2025,185.93,LLM Spreadbot v1,42.96,142.97
+12/06/2025,210.26,LLM Spreadbot v1,91.24,119.02
+12/06/2025,202.12,Forecast Masher 25,91.24,110.88
+12/06/2025,46.51,oraclegenesis,91.24,44.73
+12/06/2025,85.21,Dodona,91.24,6.03
+12/06/2025,42.96,Persistence,91.24,48.28
+12/06/2025,72.68,Didyma,91.24,18.56
+12/06/2025,nan,Electricity Maps Model DE_price_day_ahead,91.24,
+12/07/2025,129.92,Forecast Masher 25,107.45,22.47
+12/07/2025,189.93,LLM Spreadbot v1,107.45,82.48
+12/07/2025,101.09,oraclegenesis,107.45,6.36
+12/07/2025,67.10,Dodona,107.45,40.35
+12/07/2025,80.59,Didyma,107.45,26.86
+12/07/2025,91.24,Persistence,107.45,16.21
+12/07/2025,nan,Electricity Maps Model DE_price_day_ahead,107.45,
 12/08/2025,215.49,Forecast Masher 25,92.67,122.82
 12/08/2025,202.93,LLM Spreadbot v1,92.67,110.26
 12/08/2025,83.85,oraclegenesis,92.67,8.82
@@ -66,18 +87,3 @@ Date,Forecasted value,Pseudonym,Actual value,Absolute Error
 12/18/2025,120.82,Persistence,105.67,15.15
 12/18/2025,99.15,Dodona,105.67,6.52
 12/18/2025,87.76,Electricity Maps Model DE_price_day_ahead,105.67,17.91
-12/19/2025,105.67,Persistence,47.8,57.87
-12/19/2025,93.33,Didyma,47.8,45.53
-12/19/2025,113.25,Dodona,47.8,65.45
-12/19/2025,60.79,oraclegenesis,47.8,12.99
-12/19/2025,54.76,Electricity Maps Model DE_price_day_ahead,47.8,6.96
-12/20/2025,43.64,oraclegenesis,47.7,4.06
-12/20/2025,66.25,Didyma,47.7,18.55
-12/20/2025,47.80,Persistence,47.7,0.10
-12/20/2025,76.74,Dodona,47.7,29.04
-12/20/2025,53.76,Electricity Maps Model DE_price_day_ahead,47.7,6.06
-12/21/2025,70.66,oraclegenesis,43.44,27.22
-12/21/2025,49.20,Didyma,43.44,5.76
-12/21/2025,47.75,Dodona,43.44,4.31
-12/21/2025,47.70,Persistence,43.44,4.26
-12/21/2025,50.87,Electricity Maps Model DE_price_day_ahead,43.44,7.43

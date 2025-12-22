@@ -1,8 +1,4 @@
 Date,Forecasted value,Pseudonym,Actual value,Absolute Error
-2025-11-06 9:15:15,107.00,Dodona,138.81,31.81
-2025-11-06 9:15:13,97.85,Persistence,138.81,40.96
-2025-11-06 9:15:17,103.52,Didyma,138.81,35.29
-2025-11-06 10:56:17,nan,Forecast Hi-Lo Spread DAA DE-LU,138.81,
 2025-11-07 9:15:19,118.33,Dodona,56.68,61.65
 2025-11-07 9:15:15,138.81,Persistence,56.68,82.13
 2025-11-07 9:15:20,106.55,Didyma,56.68,49.87

@@ -1,16 +1,4 @@
 Date,Forecasted value,Pseudonym,Actual value,Absolute Error
-2025-11-06 9:15:15,107.00,Dodona,138.81,31.81
-2025-11-06 9:15:13,97.85,Persistence,138.81,40.96
-2025-11-06 9:15:17,103.52,Didyma,138.81,35.29
-2025-11-06 10:56:17,nan,Forecast Hi-Lo Spread DAA DE-LU,138.81,
-2025-11-07 9:15:19,118.33,Dodona,56.68,61.65
-2025-11-07 9:15:15,138.81,Persistence,56.68,82.13
-2025-11-07 9:15:20,106.55,Didyma,56.68,49.87
-2025-11-07 10:55:59,nan,Forecast Hi-Lo Spread DAA DE-LU,56.68,
-2025-11-08 9:15:17,56.68,Persistence,49.41,7.27
-2025-11-08 9:15:19,97.75,Dodona,49.41,48.34
-2025-11-08 9:15:21,92.71,Didyma,49.41,43.30
-2025-11-08 10:56:01,nan,Forecast Hi-Lo Spread DAA DE-LU,49.41,
 2025-11-09 9:15:12,53.05,Dodona,100.69,47.64
 2025-11-09 9:15:10,49.41,Persistence,100.69,51.28
 2025-11-09 9:15:13,78.71,Didyma,100.69,21.98
@@ -59,3 +47,11 @@ Date,Forecasted value,Pseudonym,Actual value,Absolute Error
 2025-11-20 9:15:10,94.66,Didyma,227.21,132.55
 2025-11-20 9:15:09,94.07,Dodona,227.21,133.14
 2025-11-20 10:56:10,nan,Forecast Hi-Lo Spread DAA DE-LU,227.21,
+2025-11-21 9:15:11,227.21,Persistence,51.48,175.73
+2025-11-21 9:15:13,169.84,Dodona,51.48,118.36
+2025-11-21 9:15:14,136.97,Didyma,51.48,85.49
+2025-11-21 10:56:08,nan,Forecast Hi-Lo Spread DAA DE-LU,51.48,
+2025-11-22 9:15:08,51.48,Persistence,36.35,15.13
+2025-11-22 9:15:11,113.11,Didyma,36.35,76.76
+2025-11-22 9:15:10,139.35,Dodona,36.35,103.00
+2025-11-22 10:55:42,nan,Forecast Hi-Lo Spread DAA DE-LU,36.35,
